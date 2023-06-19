@@ -98,11 +98,53 @@ func array() {
   
 }
 
+func slice(){
+  //slices similar to arrays but more flexible and powerful
+  //The length of slices grows and shrinks as one sees fit
+  // Ways to make a slice
+
+  // using []datatype{values} format
+  // using make() function
+  // create slice from an array.
+
+  myslice1 := []int{}
+
+  fmt.Println(len(myslice1))
+  fmt.Println(cap(myslice1)) //- capacity of the slice the number of elements the slice can grow or shrink to
+  fmt.Println(myslice1)
+
+  myslice2 := []int{1,2,3,4,5}
+  fmt.Println(len(myslice2))
+  fmt.Println(len(myslice2))
+  fmt.Println(myslice2)
+
+  // using make() function
+  // make([]datatype, length, capacity) - if capacity is not defined it will be equal the length
+
+  myslice9 := make([]int, 5, 10)
+
+  fmt.Printf("myslice9 = %v\n", myslice9)
+  fmt.Printf("length = %d\n", len(myslice9))
+  fmt.Printf("capacity = %d\n", cap(myslice9))
+
+  //Appending to slices
+  myslice2 = append(myslice2, 80, 90)
+  fmt.Println(myslice2)
+
+  //Appending a slice to another slice
+  // slice3 = append(slice1, slice2...) - THe "..." is necessary when appending elements of one slice to another
+
+  slice3 := append(myslice2, myslice9...)
+
+  fmt.Printf("my slice: %v", slice3)
+}
+
 // function - Any code inside curly braces is executed
 func main() {
 
 	practice()
   array()
+  slice()
 
 	//statements and expressions
 	//fmt.Println("Hello World!") - A function that is made available from the fmt package.
