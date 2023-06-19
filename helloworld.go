@@ -48,10 +48,61 @@ func practice() {
 
 }
 
+func array() {
+	// It allows for the storage of multiple values of same type in a single variable. This is in place of declaring separate variable for each value.
+
+  // The syntax for declaring an array is as follows:
+  // var array_name [size] data_type
+  // While using the := sign it is as follows
+
+  // array_name := [length] datatype{values} - The length specifies the number of values to store in the array. In GO arrays have a fixed length
+
+  var arr1 = [3]int{1,2,3}
+  
+  //for inferred lengths
+  // var arr1 = [...]int{1,2,3}
+
+
+  arr2 := [5]int{4,5,6,7,8}
+
+  //arr2 := [...]int{4,5,6,7,8} - Length of the array will be inferred during compilation.
+
+  var cars = [4]string{"ford", "BMW", "audi", "benz"}
+
+  fmt.Println(cars)
+
+  // Accessing array elements
+  // The elements of an array are accessed using the index of the element. The index of the first element is 0 and the last element is length - 1
+  fmt.Print(cars[1])
+  
+  fmt.Println(arr1)
+  fmt.Println(arr2)
+
+  // Array Initialization
+
+  // If an array or one of its elements has not been initialized in the code. IT is assigned the default value of its type - int =0 and string = ""
+
+  arr3 := [6]int{} // not initialized
+  arr4 := [4]int{9, 10} //partially initialized
+  arr5 := [3]int{113,45,67} //fully initialized
+
+  fmt.Println(arr3)
+  fmt.Println(arr4)
+  fmt.Println(arr5)
+
+  //Initializing a specific element in teh array
+  arr6 := [5]int{1: 10, 2: 20} //arr6[1] = 10, arr6[2] = 20
+  //Above means assign 10 to index 1 and 20 to index 2
+  fmt.Print(arr6)
+
+  
+}
+
 // function - Any code inside curly braces is executed
 func main() {
 
 	practice()
+  array()
 
 	//statements and expressions
 	//fmt.Println("Hello World!") - A function that is made available from the fmt package.
