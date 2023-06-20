@@ -261,15 +261,84 @@ func loop(){
 
   // for ommission of either index or value you replace the idx or val with an underscore.
 }
+func familyName(fname string, age int){
+  // parameters means that information can be passed to the functions. Act as variables inside the function.
+  // The parameters are specified inside the parentheses after the function name. we also specify their types
+  fmt.Println("Hello", fname, "Runyenjes", age, "years")
+}
+
+func practice1(x int, y int) int{
+  return x+y
+}
+
+// GO structures; struct - creates a collection of members of different data types into a single variable.
+// To declare a struct in go we use the type and struct keywords
+
+// type struct_name struct{ member1 datatype; member2 datatype;}
+
+// To access the members of the struct we use the dot operator
+
+type People struct {
+  name string
+  age int
+  job string
+  salary int
+}
+
+
+// Maps store values in key:value pairs
+// Each element in the map is a key:value pair
+// A map is an unordered and changeable collection that does not allow duplicates.
+// Default value of a map is nil.
+// maps hold references to underlying hash table
+
+// syntax - map[key]value
+// var a = map[KeyType]ValueType{key1: value1, key2: value2, ...}
+
+func myMap(){
+  b := map[string]int{"Oslo": 1, "Nairobi": 2}
+
+  fmt.Printf("b %v \n", b)
+
+  // we can also use the make function 
+  var d = make(map[string]string)
+  d["Kenya"] = "Nairobi"
+  fmt.Printf("d %v \n", d)
+
+  //Checking for specific elements in a map
+  // syntax - val, ok :=map_name[key]
+
+  val, ok := b["Oslo"]
+  fmt.Println(val, ok)
+
+  for k, v  := range b {
+    fmt.Printf("%s -> %d \n", k, v)
+  }
+}
 
 // function - Any code inside curly braces is executed
 func main() {
 
+  myMap()
 	practice()
   array()
   slice()
   condition()
   loop()
+  familyName("Kamau", 6)
+  fmt.Println(practice1(1,2))
+
+  var pers1 People
+  pers1.name = "Joseph"
+  pers1.age = 20
+  pers1.job = "Software Engineer"
+  pers1.salary = 100000
+
+   // Access and print Pers1 info
+   fmt.Println("Name: ", pers1.name)
+   fmt.Println("Age: ", pers1.age)
+   fmt.Println("Job: ", pers1.job)
+   fmt.Println("Salary: ", pers1.salary)
 
 	//statements and expressions
 	//fmt.Println("Hello World!") - A function that is made available from the fmt package.
