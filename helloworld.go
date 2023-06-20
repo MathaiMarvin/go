@@ -163,12 +163,113 @@ func slice(){
   fmt.Printf("numbersCopy = %d \n", cap(numbersCopy))
 }
 
+func condition() {
+  // if statement must be in lowercase letters else will generate errors
+  if (20 > 10) {
+    fmt.Println("20 is greater than 10")
+  }
+
+  time :=30
+
+  if (time < 20) {
+    fmt.Println("Good Morining")
+  }else {
+    fmt.Println("Good Evening")
+  }
+
+  // Nested if statement
+  num := 20
+
+  if (num >= 10){
+    fmt.Println("Number is more than 10")
+
+    if (num > 15){
+      fmt.Println("Number is more than 15")
+    }
+  }else{
+    fmt.Println("Number is less than 10")
+  }
+
+
+  // switch case - selects one of the many code blocks to be executed.
+  // The switch statement executes case by case until a match is found.
+
+  // How switch case works
+  // - The expression is evaluated once
+  // - The value of the switch expression is compared with the values of each case.
+  // - If there is a match the associated block of code is executed
+  // - The default keyword is optional and it specifies the code to be run if there is no case match
+
+  day := 4
+
+  switch day {
+    case 1:
+      fmt.Println("Monday")
+    case 2:
+      fmt.Println("Tuesday")
+    case 3:
+      fmt.Println("Wednesday")
+    case 4:
+      fmt.Println("Thursday")
+    case 5:
+      fmt.Println("Friday")
+    case 6:
+      fmt.Println("Saturday")
+    case 7:
+      fmt.Println("Sunday")
+    default:
+      fmt.Println("Invalid day")
+  }
+
+  // switch case with multiple expressions
+  // The switch case can have multiple expressions separated by comma
+
+}
+
+func loop(){
+  //For loop is the only available loop in go.
+  // It loops through a block of code a specified number of times.
+  // Syntax for statement1; statement2; statement3 {}
+  // statement1 is executed before the loop starts - initialized the loop counter value
+  // statement2 defines the condition for executing the loop - Evaluated for each loop iteratiob. If it evaluates true the loop continues if it is false the loop ends.
+  // statement3 is executed at the end of each iteration - increments the loop counter value
+
+  for i := 0; i<=5; i++{
+
+    // The continue statement is used to skip one or more iterations in the loop. It then continues with the next iteration in the loop.
+    if i == 3{
+      //This code will skip 3 and continue with the iteration
+      continue
+    }
+
+    // The break statement is used to terminate the loop or switch statement and transfer execution to the statement immediately following the loop or switch.
+    if i == 4{
+      break
+    }
+
+    fmt.Println(i)
+  }
+
+  // Range key word is used to iterate over an array, slice or map. It returns both the index and value
+
+  // syntax for index, value :=array|slice|map{}
+
+  fruits := [3]string{"banana", "apple", "orange"}
+  for idx, val:= range fruits{
+    fmt.Printf("fruits[%d] = %s \n", idx, val)
+  }
+
+  // for ommission of either index or value you replace the idx or val with an underscore.
+}
+
 // function - Any code inside curly braces is executed
 func main() {
 
 	practice()
   array()
   slice()
+  condition()
+  loop()
 
 	//statements and expressions
 	//fmt.Println("Hello World!") - A function that is made available from the fmt package.
