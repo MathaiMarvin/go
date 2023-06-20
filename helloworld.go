@@ -137,6 +137,30 @@ func slice(){
   slice3 := append(myslice2, myslice9...)
 
   fmt.Printf("my slice: %v", slice3)
+
+  //MEMORY EFFICIENCY IN GOLANG
+  //when using slices, go will load all the underlying elements into memory
+  // If the array is large and you only need a few elements. It is better to copy those elements using copy() function
+  // THe copy function will create a new underlying array with only the required elements for the slice reducing memory used for the program.
+  //syntax - copy(dest, src)
+
+  // The copy function will take in two slices the dest and src, and will copy data from the src to the destination and will return the number of elements copied.
+  numbers := []int{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}
+  //Original slice
+
+  fmt.Printf("numbers = %v \n", numbers)
+  fmt.Printf("length = %d \n", len(numbers))
+  fmt.Printf("Capacity = %d \n", cap(numbers))
+
+  //Creating a new slice using the copy function
+  neededNumbers := numbers[: len(numbers) - 10]
+  numbersCopy := make([]int, len(neededNumbers))
+
+  copy(numbersCopy, neededNumbers)
+
+  fmt.Printf("numbersCopy = %v \n", numbersCopy)
+  fmt.Printf("length = %d \n", len(numbersCopy))
+  fmt.Printf("numbersCopy = %d \n", cap(numbersCopy))
 }
 
 // function - Any code inside curly braces is executed
